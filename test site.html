@@ -1,0 +1,494 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Explore futuristic content, research themes, and more on Your Future - a space for innovation and inspiration.">
+    <meta name="theme-color" content="#0d0d2b">
+    <!-- SEO Optimization: Open Graph Meta Tags -->
+    <meta property="og:title" content="Your Future - Futuristic Blog">
+    <meta property="og:description" content="Explore cutting-edge research and futuristic ideas shaping tomorrow.">
+    <meta property="og:image" content="https://imgur.com/GNXv4kG.jpg">
+    <meta property="og:url" content="https://yourwebsite.com/">
+    <meta property="og:type" content="website">
+    <!-- Canonical Link -->
+    <link rel="canonical" href="https://yourwebsite.com/">
+    <!-- Favicon -->
+    <link rel="icon" href="/path-to-favicon.ico" type="image/x-icon">
+    <title>Kyle's Interests</title>
+
+    <!-- Google Font -->
+    <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700&display=swap" rel="stylesheet">
+    <!-- AOS CSS from CDN -->
+    <link href="https://cdn.jsdelivr.net/npm/aos@2.3.4/dist/aos.css" rel="stylesheet">
+
+    <style>
+        /* Root variables for easy theme management */
+        :root {
+            --background-color: #0d0d2b;
+            --primary-color: #ffffff;
+            --secondary-color: #1a1a40;
+            --accent-color: #00ffff;
+            --hover-color: #00b3b3;
+            --shadow-color: rgba(0, 255, 255, 0.3);
+            --background-gradient: linear-gradient(120deg, #0d0d2b, #1a1a40, #0d0d2b);
+        }
+
+        /* Light theme variables */
+        [data-theme="light"] {
+            --background-color: #f0f0f0;
+            --primary-color: #000000;
+            --secondary-color: #ffffff;
+            --accent-color: #0077cc;
+            --hover-color: #005fa3;
+            --shadow-color: rgba(0, 119, 204, 0.3);
+            --background-gradient: linear-gradient(120deg, #f0f0f0, #ffffff, #f0f0f0);
+        }
+
+        body {
+            background: var(--background-gradient);
+            background-size: 400% 400%;
+            animation: gradientShift 10s ease infinite;
+            color: var(--primary-color);
+            font-family: 'Arial', sans-serif;
+            margin: 0;
+            padding: 0;
+            overflow-x: hidden;
+            position: relative;
+            transition: opacity 0.5s ease-in-out, background 0.5s ease;
+            opacity: 0; /* Initial opacity for page load animation */
+        }
+
+        body.loaded {
+            opacity: 1; /* Set opacity to 1 when page has loaded */
+        }
+
+        @keyframes gradientShift {
+            0% { background-position: 0% 50%; }
+            50% { background-position: 100% 50%; }
+            100% { background-position: 0% 50%; }
+        }
+
+        /* Smooth scrolling */
+        html {
+            scroll-behavior: smooth;
+        }
+
+        /* Particles.js container */
+        #particles-js {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            top: 0;
+            left: 0;
+            z-index: -1;
+        }
+
+        /* Header styling */
+        header {
+            position: relative;
+            height: 400px; /* Default height for desktop */
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            background: linear-gradient(135deg, #0d0d2b, #1a1a40, #00ffff);
+            background-size: 200% 200%;
+            animation: gradientShift 10s ease infinite;
+            overflow: hidden;
+            cursor: pointer; /* Add pointer cursor to indicate clickability */
+        }
+
+        .banner-content h1 {
+            font-size: clamp(2.5rem, 8vw, 4rem);
+            color: var(--accent-color);
+            text-transform: uppercase;
+            margin: 0;
+            animation: glow 2s infinite alternate;
+        }
+
+        @keyframes glow {
+            0% {
+                text-shadow: 0 0 5px var(--accent-color), 0 0 10px var(--accent-color), 0 0 20px var(--accent-color);
+            }
+            100% {
+                text-shadow: 0 0 10px var(--accent-color), 0 0 20px var(--accent-color), 0 0 40px var(--accent-color);
+            }
+        }
+
+        /* Navigation bar */
+        nav {
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            padding: 1rem 2rem;
+            background-color: var(--secondary-color);
+            box-shadow: 0 2px 10px var(--shadow-color);
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 1rem;
+        }
+
+        .nav-links a {
+            position: relative;
+            color: var(--primary-color);
+            text-decoration: none;
+            font-size: clamp(1rem, 3vw, 1.2rem);
+            padding: 0.5rem 1rem;
+            border-radius: 50px;
+            background: linear-gradient(90deg, rgba(0, 255, 255, 0.2), rgba(0, 255, 255, 0.8));
+            transition: transform 0.3s, background-color 0.3s;
+        }
+
+        .nav-links a:hover {
+            transform: scale(1.1); /* Subtle zoom effect on hover */
+        }
+
+        .nav-links a.active,
+        .nav-links a:focus {
+            background-color: var(--accent-color);
+            color: var(--background-color);
+        }
+
+        /* Main content area */
+        main {
+            max-width: 1000px;
+            margin: 2rem auto;
+            padding: 2rem;
+            background-color: var(--secondary-color);
+            border-radius: 20px;
+            box-shadow: 0 4px 15px var(--shadow-color);
+            animation: fadeIn 1s ease-in-out;
+            position: relative;
+            z-index: 1;
+        }
+
+        .tab-content {
+            display: none;
+            opacity: 0;
+            transform: translateY(20px); /* Initial position for fade-in */
+            transition: opacity 0.5s ease, transform 0.5s ease; /* Smooth transition */
+        }
+
+        .tab-content.active {
+            display: block;
+            opacity: 1;
+            transform: translateY(0); /* Bring to view */
+        }
+
+        article h2 {
+            font-size: clamp(1.5rem, 5vw, 2.5rem); /* Responsive font size */
+            color: var(--accent-color);
+            text-transform: uppercase;
+            margin-bottom: 1rem;
+            border-bottom: 2px solid var(--accent-color);
+            padding-bottom: 0.5rem;
+        }
+
+        article p {
+            font-size: clamp(1rem, 3vw, 1.2rem); /* Responsive font size */
+            line-height: 1.8;
+            margin-bottom: 1.5rem;
+        }
+
+        iframe {
+            width: 100%;
+            height: 500px;
+            border: none;
+            border-radius: 10px;
+            box-shadow: 0 4px 15px var(--shadow-color);
+        }
+
+        /* Footer styling */
+        footer {
+            text-align: center;
+            padding: 2rem 1rem;
+            margin-top: 2rem;
+            background-color: var(--secondary-color);
+            color: var(--primary-color);
+            box-shadow: 0 -2px 10px var(--shadow-color);
+            position: relative;
+            z-index: 1;
+        }
+
+        /* Dark/Light mode toggle button */
+        .theme-toggle {
+            position: fixed;
+            bottom: 20px;
+            right: 20px;
+            background-color: var(--accent-color);
+            color: var(--background-color);
+            border: none;
+            padding: 10px 15px;
+            border-radius: 50px;
+            cursor: pointer;
+            box-shadow: 0 2px 10px var(--shadow-color);
+            z-index: 1000;
+        }
+
+        /* Mobile Optimization */
+        @media (max-width: 768px) {
+            header {
+                height: 250px; /* Reduced height for mobile */
+            }
+
+            .banner-content h1 {
+                font-size: clamp(2rem, 6vw, 3rem);
+            }
+
+            nav {
+                padding: 0.5rem 1rem; /* Smaller padding for mobile */
+            }
+
+            .nav-links {
+                gap: 0.5rem; /* Reduced gap for mobile */
+            }
+
+            .nav-links a {
+                font-size: 1rem; /* Smaller font size for mobile */
+                padding: 0.5rem; /* Smaller padding for mobile */
+            }
+
+            main {
+                padding: 1rem; /* Smaller padding for mobile */
+            }
+
+            iframe {
+                height: 300px; /* Smaller height for mobile */
+            }
+        }
+
+        /* Sports Scores Styling */
+        .scores-container {
+            display: grid;
+            gap: 1.5rem;
+        }
+
+        .scores-container h3 {
+            font-size: 1.8rem;
+            color: var(--accent-color);
+            margin-bottom: 1rem;
+        }
+
+        .scores-list {
+            list-style: none;
+            padding: 0;
+        }
+
+        .scores-list li {
+            background: rgba(0, 255, 255, 0.1);
+            padding: 1rem;
+            border-radius: 10px;
+            margin-bottom: 1rem;
+            font-size: 1.2rem;
+        }
+    </style>
+</head>
+<body>
+    <div id="particles-js"></div>
+
+    <!-- Header Banner -->
+    <header onclick="resetToHome()">
+        <div class="banner-content">
+            <h1>Kyle's Interests</h1>
+        </div>
+    </header>
+
+    <!-- Navigation Bar -->
+    <nav role="navigation">
+        <div class="nav-links">
+            <a href="#home" class="active" onclick="switchTab(event, 'home')" aria-label="Home">Home</a>
+            <a href="#starbase" onclick="switchTab(event, 'starbase')" aria-label="Starbase 24/7">Starbase 24/7</a>
+            <a href="#sports" onclick="switchTab(event, 'sports')" aria-label="Sports">Sports</a>
+        </div>
+    </nav>
+
+    <!-- Main Content -->
+    <main role="main">
+        <div id="home" class="tab-content active" data-aos="fade-up">
+            <article>
+                <h2>Home</h2>
+                <p>Explore cutting-edge research and futuristic ideas shaping tomorrow.</p>
+            </article>
+        </div>
+
+        <div id="starbase" class="tab-content" data-aos="fade-up">
+            <article>
+                <h2>Starbase 24/7</h2>
+                <!-- Lazy Loading and Error Handling for YouTube Embed -->
+                <iframe 
+                    data-src="https://www.youtube.com/embed/mhJRzQsLZGg?autoplay=1&mute=1" 
+                    allowfullscreen
+                    title="Starbase 24/7 Live Stream"
+                    onerror="handleIframeError(this)"
+                    loading="lazy">
+                </iframe>
+                <p id="iframe-error" style="display: none; color: red;">Failed to load the video. Please try again later.</p>
+            </article>
+        </div>
+
+        <!-- Sports Tab -->
+        <div id="sports" class="tab-content" data-aos="fade-up">
+            <article>
+                <h2>Sports</h2>
+                <div class="scores-container">
+                    <div>
+                        <h3>NBA Scores</h3>
+                        <ul id="nba-scores" class="scores-list"></ul>
+                    </div>
+                    <div>
+                        <h3>NFL Scores</h3>
+                        <ul id="nfl-scores" class="scores-list"></ul>
+                    </div>
+                </div>
+            </article>
+        </div>
+    </main>
+
+    <!-- Footer -->
+    <footer role="contentinfo">
+        <p>&copy; 2025 Futuristic Blog. All rights reserved.</p>
+    </footer>
+
+    <!-- Dark/Light Mode Toggle Button -->
+    <button class="theme-toggle" onclick="toggleTheme()" aria-label="Toggle theme">🌓</button>
+
+    <!-- Particles.js from CDN -->
+    <script src="https://cdn.jsdelivr.net/npm/particles.js@2.0.0/particles.min.js" defer></script>
+    <!-- AOS JS from CDN -->
+    <script src="https://cdn.jsdelivr.net/npm/aos@2.3.4/dist/aos.js" defer></script>
+    <script>
+        document.addEventListener("DOMContentLoaded", function () {
+            // Trigger page load animation
+            document.body.classList.add('loaded');
+
+            // Custom Particles.js Configuration
+            particlesJS('particles-js', {
+                particles: {
+                    number: { value: 150, density: { enable: true, value_area: 1000 } },
+                    color: { value: "#00ffff" },
+                    shape: { type: "circle", stroke: { width: 0, color: "#000000" } },
+                    opacity: { value: 0.7, random: true },
+                    size: { value: 4, random: true },
+                    move: { enable: true, speed: 5, direction: "none", out_mode: "bounce" }
+                },
+                interactivity: {
+                    events: {
+                        onhover: { enable: true, mode: "bubble" },
+                        onclick: { enable: true, mode: "push" }
+                    },
+                    modes: {
+                        bubble: { distance: 200, size: 6, duration: 2 },
+                        push: { particles_nb: 4 }
+                    }
+                },
+                retina_detect: true
+            });
+
+            // Initialize AOS
+            AOS.init({ duration: 1000 });
+
+            // Lazy Load YouTube Embed
+            const iframe = document.querySelector('iframe[data-src]');
+            if (iframe) {
+                iframe.src = iframe.dataset.src;
+            }
+
+            // Fetch NBA Scores
+            fetch('https://site.api.espn.com/apis/site/v2/sports/basketball/nba/scoreboard')
+                .then(response => response.json())
+                .then(data => {
+                    const nbaScoresList = document.getElementById('nba-scores');
+                    data.events.forEach(event => {
+                        const homeTeam = event.competitions[0].competitors.find(team => team.homeAway === 'home');
+                        const awayTeam = event.competitions[0].competitors.find(team => team.homeAway === 'away');
+                        const listItem = document.createElement('li');
+                        listItem.textContent = `${awayTeam.team.abbreviation} ${awayTeam.score} - ${homeTeam.score} ${homeTeam.team.abbreviation}`;
+                        nbaScoresList.appendChild(listItem);
+                    });
+                })
+                .catch(error => {
+                    console.error('Error fetching NBA scores:', error);
+                    document.getElementById('nba-scores').innerHTML = '<li>Failed to load NBA scores. Please try again later.</li>';
+                });
+
+            // Fetch NFL Scores
+            fetch('https://site.api.espn.com/apis/site/v2/sports/football/nfl/scoreboard')
+                .then(response => response.json())
+                .then(data => {
+                    const nflScoresList = document.getElementById('nfl-scores');
+                    data.events.forEach(event => {
+                        const homeTeam = event.competitions[0].competitors.find(team => team.homeAway === 'home');
+                        const awayTeam = event.competitions[0].competitors.find(team => team.homeAway === 'away');
+                        const listItem = document.createElement('li');
+                        listItem.textContent = `${awayTeam.team.abbreviation} ${awayTeam.score} - ${homeTeam.score} ${homeTeam.team.abbreviation}`;
+                        nflScoresList.appendChild(listItem);
+                    });
+                })
+                .catch(error => {
+                    console.error('Error fetching NFL scores:', error);
+                    document.getElementById('nfl-scores').innerHTML = '<li>Failed to load NFL scores. Please try again later.</li>';
+                });
+        });
+
+        // Error Handling for YouTube Embed
+        function handleIframeError(iframe) {
+            const errorMessage = document.getElementById('iframe-error');
+            iframe.style.display = 'none';
+            errorMessage.style.display = 'block';
+        }
+
+        // Tab switching logic
+        function switchTab(event, tabId) {
+            event.preventDefault();
+
+            // Remove 'active' class from all tabs
+            document.querySelectorAll('.tab-content').forEach(tab => {
+                tab.classList.remove('active');
+            });
+
+            document.querySelectorAll('.nav-links a').forEach(link => link.classList.remove('active'));
+
+            // Add 'active' class to the selected tab and nav link
+            document.getElementById(tabId).classList.add('active');
+            event.target.classList.add('active');
+        }
+
+        // Reset to Home
+        function resetToHome() {
+            // Remove 'active' class from all tabs
+            document.querySelectorAll('.tab-content').forEach(tab => {
+                tab.classList.remove('active');
+            });
+
+            // Remove 'active' class from all nav links
+            document.querySelectorAll('.nav-links a').forEach(link => {
+                link.classList.remove('active');
+            });
+
+            // Set 'active' class to home tab and link
+            document.getElementById('home').classList.add('active');
+            document.querySelector('a[href="#home"]').classList.add('active');
+
+            // Scroll to the top of the page
+            window.scrollTo({ top: 0, behavior: 'smooth' });
+        }
+
+        // Dark/Light Mode Toggle
+        function toggleTheme() {
+            const body = document.body;
+            const currentTheme = body.getAttribute('data-theme');
+            if (currentTheme === 'light') {
+                body.setAttribute('data-theme', 'dark');
+            } else {
+                body.setAttribute('data-theme', 'light');
+            }
+        }
+    </script>
+</body>
+</html>
